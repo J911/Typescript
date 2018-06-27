@@ -1,25 +1,25 @@
 class Planet {
-    public diameter: number;
-    protected isTransduction: boolean = true;
-
-    getIsTransduction(): boolean {
+    constructor() {
+        this.isTransduction = true;
+    }
+    getIsTransduction() {
         return this.isTransduction;
     }
-
-    stopTransduction(): void {
+    stopTransduction() {
         console.log("stop1");
         this.isTransduction = false;
     }
 }
-
 class Earth extends Planet {
-    public features: string[] = ["soil", "water", "oxyzen"];
-    stopTransduction(): void {
+    constructor() {
+        super(...arguments);
+        this.features = ["soil", "water", "oxyzen"];
+    }
+    stopTransduction() {
         console.log("stop2");
         this.isTransduction = false;
     }
 }
-
 let earth = new Earth();
 earth.diameter = 12656.2;
 console.log("1번 : " + earth.diameter);
